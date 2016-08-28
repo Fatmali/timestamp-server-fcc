@@ -1,7 +1,5 @@
 var express=require('express');
-var mongo=require('mongodb').MongoClient;
 var time=require('./time');
-var url='mongodb://localhost:27017/timestampdb'
 var app=express();
 
 app.get('/:date',function(req,res){
