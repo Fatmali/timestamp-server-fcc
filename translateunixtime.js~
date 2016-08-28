@@ -1,0 +1,40 @@
+
+var mongo=require('mongodb').MongoClient;
+var url='mongodb://localhost:27017/timestampdb'
+
+var zerofill=function(n){
+	if(n<10) return '0' + n;
+	else return n;
+}
+
+
+var translateUNIX=function(date){
+
+
+	var months=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+	var naturalDate=new Date(date*1000);
+	var month=months[naturalDate.getMonth()];
+	var theDate=naturalDate.getDate();
+	var year=naturalDate.getFullYear();
+	var hour=naturalDate.getHours();
+	var minutes=naturalDate.getMinutes();
+	var seconds=naturalDate.getSeconds();
+
+	var naturalDateString=month+" "+zerofill(theDate)+", "+zerofill(year)+" "+zerofill(hour)+":"+zerofill(minutes)+":"+zerofill(seconds);
+
+
+
+	var doc={
+			naturalDate : naturalDateString,
+			unixDate : date
+	}
+
+
+
+	return(doc);
+}
+
+	
+
+module.exports.translateunix=translateUNIX;
+

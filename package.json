@@ -8,5 +8,8 @@
     "start": "node server.js"
   },
   "author": "Fatma Ali",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "mongodb": "~2.2.8"
+  }
 }
