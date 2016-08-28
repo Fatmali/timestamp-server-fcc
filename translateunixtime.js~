@@ -1,24 +1,12 @@
 
+var mongo=require('mongodb').MongoClient;
+var url='mongodb://localhost:27017/timestampdb'
 
 var zerofill=function(n){
 	if(n<10) return '0' + n;
 	else return n;
 }
 
-
-var translateNATURAL=function(date){
-		var naturalDate=new Date(date);
-		var naturalDateStr=Date.parse(naturalDate).toString();
-		var unixDateStr=naturalDateStr.substring(0,naturalDateStr.length-3)
-		var doc={
-
-			naturalDate : date,
-			unixDate : parseInt(unixDateStr)
-}
-
-
-			return doc;
-}
 
 var translateUNIX=function(date){
 
@@ -38,7 +26,7 @@ var translateUNIX=function(date){
 
 	var doc={
 			naturalDate : naturalDateString,
-			unixDate : parseInt(date)
+			unixDate : date
 	}
 
 
@@ -49,5 +37,4 @@ var translateUNIX=function(date){
 	
 
 module.exports.translateunix=translateUNIX;
-module.exports.translatenatural=translateNATURAL;
 

@@ -1,11 +1,7 @@
-
-
 var zerofill=function(n){
 	if(n<10) return '0' + n;
 	else return n;
 }
-
-
 var translateNATURAL=function(date){
 		var naturalDate=new Date(date);
 		var naturalDateStr=Date.parse(naturalDate).toString();
